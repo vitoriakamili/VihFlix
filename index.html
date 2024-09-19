@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Catálogo de Séries</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .description-card {
+            display: none;
+            color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            text-align: center;
+        }
+
+        .description-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .close-btn {
+            margin-top: 15px;
+            background-color: #710075;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VihFlix</h1>
+    </header>
+
+    <main>
+        <div class="grid-container">
+
+            <div class="grid-item">
+                <img src="https://a-static.mlcdn.com.br/450x450/dvd-frozen-uma-aventura-congelante-disney/videoimpacto/602537/1933940d608ca3c7b98c864efe31b702.jpg" alt="Frozen">
+                <h2>Frozen</h2>
+                <button onclick="openCard('frozen')">Ver Descrição</button>
+            </div>
+
+            <div class="grid-item">
+                <img src="https://br.web.img3.acsta.net/pictures/19/10/14/15/18/1691494.jpg" alt="Frozen 2">
+                <h2>Frozen 2</h2>
+                <button onclick="openCard('frozen2')">Ver Descrição</button>
+            </div>
+
+            <div class="grid-item">
+                <img src="https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=480,height=720/catalog/crunchyroll/757bae5a21039bac6ebace5de9affcd8.jpg" alt="One Piece">
+                <h2>One Piece</h2>
+                <button onclick="openCard('onepiece')">Ver Descrição</button>
+            </div>
+
+            <div class="grid-item">
+                <img src="https://i.pinimg.com/736x/b9/ea/03/b9ea0302e501d6d407f767c438c8616b.jpg" alt="Nanatsu no Taizai">
+                <h2>Nanatsu no Taizai</h2>
+                <button onclick="openCard('nanatsu')">Ver Descrição</button>
+            </div>
+
+            <div class="grid-item">
+                <img src="https://i.pinimg.com/originals/91/13/ab/9113ab64440e5a733fc0efdb701c8413.jpg" alt="Dragon Ball">
+                <h2>Dragon Ball</h2>
+                <button onclick="openCard('dragonball')">Ver Descrição</button>
+            </div>
+
+            <div class="grid-item">
+                <img src="https://static.wikia.nocookie.net/dublagem/images/3/35/Barbie-_A_Princesa_e_a_Popstar.jpg/revision/latest?cb=20221202103208&path-prefix=pt-br" alt="Barbie Pop Star">
+                <h2>Barbie: A Princesa e a Popstar</h2>
+                <button onclick="openCard('barbie')">Ver Descrição</button>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="overlay" id="overlay" onclick="closeCard()"></div>
+
+    <div class="description-card" id="frozen">
+        <h2>Frozen</h2>
+        <p>Uma emocionante aventura congelante em que a princesa Anna parte em busca de sua irmã Elsa para salvar o reino de Arendelle do inverno eterno.</p>
+        <button class="close-btn" onclick="closeCard()">Fechar</button>
+    </div>
+
+    <div class="description-card" id="frozen2">
+        <h2>Frozen 2</h2>
+        <p>Anna, Elsa e seus amigos embarcam em uma nova jornada para descobrir a origem dos poderes de Elsa e salvar o reino de uma nova ameaça.</p>
+        <button class="close-btn" onclick="closeCard()">Fechar</button>
+    </div>
+
+    <div class="description-card" id="onepiece">
+        <h2>One Piece</h2>
+        <p>Luffy e sua tripulação pirata exploram os mares em busca do lendário tesouro "One Piece", enfrentando inimigos e desvendando mistérios ao longo do caminho.</p>
+        <button class="close-btn" onclick="closeCard()">Fechar</button>
+    </div>
+
+    <div class="description-card" id="nanatsu">
+        <h2>Nanatsu no Taizai</h2>
+        <p>O cavaleiro Meliodas e seus companheiros, os Sete Pecados Capitais, lutam para proteger o reino de Liones contra forças malignas.</p>
+        <button class="close-btn" onclick="closeCard()">Fechar</button>
+    </div>
+
+    <div class="description-card" id="dragonball">
+        <h2>Dragon Ball</h2>
+        <p>Goku, um guerreiro Saiyajin, luta contra poderosos inimigos enquanto busca as lendárias Esferas do Dragão para realizar desejos extraordinários.</p>
+        <button class="close-btn" onclick="closeCard()">Fechar</button>
+    </div>
+
+    <div class="description-card" id="barbie">
+        <h2>Barbie: A Princesa e a Popstar</h2>
+        <p>Barbie vive uma aventura musical emocionante quando uma princesa e uma popstar trocam de lugar para viver experiências diferentes.</p>
+        <button class="close-btn" onclick="closeCard()">Fechar</button>
+    </div>
+
+    <script>
+        function openCard(id) {
+            document.getElementById(id).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeCard() {
+            var cards = document.getElementsByClassName('description-card');
+            for (var i = 0; i < cards.length; i++) {
+                cards[i].style.display = 'none';
+            }
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
